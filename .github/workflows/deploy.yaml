@@ -3,7 +3,7 @@ name: Porfolio site deployer
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
 
