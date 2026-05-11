@@ -20,7 +20,7 @@
           :delay="index * 100"
         >
           <div
-            class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center"
+            class="h-48 bg-linear-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center"
           >
             <!-- Placeholder for project image -->
             <span class="text-4xl">🚀</span>
