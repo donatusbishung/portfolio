@@ -62,7 +62,7 @@ const projects = [
   {
     title: 'E-Commerce Dashboard',
     description:
-      'A comprehensive dashboard for managing products, orders, and analytics using Vue and Tailwind.',
+      'A comprehensive dashboard for managing products, orders, and analytics using Vue and Tailwind css.',
     tags: ['Vue', 'Tailwind', 'Chart.js']
   },
   {
