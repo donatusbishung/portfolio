@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: my-app-build
-          path: dist/
+          path: .output/public/
 
   # Job 2: Deploy to AWS S3 bucket ( deploy only for main branch )
   deploy:
@@ -49,6 +49,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: my-app-build
+          path: dist/
 
       - name: Deploy to S3
         run: |
