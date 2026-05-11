@@ -19,11 +19,17 @@ jobs:
         with: 
           node-version: '20.x'
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Install dependencies and build the app
         run: pnpm install
 
+      # Setting up pnpm
       - name: Build the app
-        run: npm run build
+        run: pnpm build
       
       - name: Save build output
         uses: actions/upload-artifact@v4
