@@ -65,6 +65,7 @@ const stack = [
   'Framer Motion',
   'Pinia',
   'TanStack Query',
-  'Git'
+  'Git',
+  'DevOps'
 ]
 </script>
