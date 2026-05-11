@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: my-app-build
-          path: .output/public/
+          path: dist/
 
   # Job 2: Deploy to AWS S3 bucket ( deploy only for main branch )
   deploy:
@@ -52,7 +52,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync .output/public/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
 
       - name: Notify if there's failure
         if: failure()
