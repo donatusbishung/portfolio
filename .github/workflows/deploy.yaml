@@ -1,0 +1,52 @@
+name: Porfolio site deployer
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+
+  # JOB 1: Install packages and build the app
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20.x'
+
+      - name: Install dependencies and build the app
+        run: pnpm install
+
+      - name: Build the app
+        run: npm run build
+      
+      - name: Save build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-app-build
+          path: dist/
+
+  # Job 2: Deploy to AWS S3 bucket ( deploy only for main branch )
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main'
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4 
+
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v4
+  #       with: 
+  #         node-version: '20.x'
+
+  #     - name: Install dependencies and build the app
+  #       run: pnpm install
+
+  #     - name: Build the app
+  #       run: npm run build
